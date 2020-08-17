@@ -1,5 +1,5 @@
-# Three.js boilerplate
-This is a simple three.js boilerplate for new projects, feel free to contribute!
+# Snow night
+A simple exploration using three.js
 
 ### Setup
 Run the setup script to make the repository your own!
