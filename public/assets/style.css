@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+
+}
+
+header{
+  color: #fff;
+}
+header, main, footer, section{
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+section{
+  min-height: 100vh;
+}
+canvas {
+  position: fixed;
+  z-index : -9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.snow-container{
+
+}
+
+#snow{
+  max-height: 100vh;
+}
+
+main{
+  margin-top: 50%;
+}
+
+.bg-white{
+  background-color: #fff;
+}
+.bg-black{
+  background-color: #777;
+}
+
+header h1{
+  font-weight: 900;
+  font-size: 8em;
+  opacity: 0.3;
+}
