@@ -40,7 +40,7 @@ function init() {
 				if ( object.isMesh ) {
       // note: for a multi-material mesh, `o.material` may be an array,
       // in which case you'd need to set `.map` on each value.
-	      	object.material = new THREE.MeshPhongMaterial();
+	      	object.material = new THREE.MeshPhongMaterial({shininess: 80});
 	    	};
 
 			});
@@ -67,6 +67,7 @@ function init() {
 				var geometry = new THREE.SphereGeometry( size , 20, 20, 0, Math.PI * 2, 0, Math.PI * 2);
 				var material = new THREE.MeshPhongMaterial({
 					color: 0xFFFFFF,
+					shininess: 80,
 	        transparent: true,
 	        opacity: 0.5
     		});
