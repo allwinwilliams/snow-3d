@@ -37,7 +37,7 @@ function init() {
 
 		var loader = new GLTFLoader();
 
-		loader.load( './snow.gltf', function ( gltf ) {
+		loader.load( './public/assets/snow.gltf', function ( gltf ) {
 			// scene.add( gltf.scene );
 			var model = gltf.scene;
 			model.traverse((object) => {
