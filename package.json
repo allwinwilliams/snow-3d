@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "scripts.js",
+  "homepage": "https://allwinwilliams.github.io/snow-3d",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "deploy": "gh-pages -d ."
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,8 @@
     "express": "^4.15.3",
     "three": "^0.119.1",
     "three-gltf-loader": "^1.111.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
   }
 }
