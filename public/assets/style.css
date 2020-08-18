@@ -11,7 +11,7 @@ header, main, footer, section{
   padding-bottom: 5em;
 }
 section{
-  min-height: 100vh;
+  min-height: 50vh;
 }
 canvas {
   position: fixed;
@@ -40,7 +40,10 @@ main{
   background-color: #fff;
 }
 .bg-black{
-  background-color: #777;
+  background-color: #333;
+}
+.bg-grey{
+  background-color: #eee;
 }
 
 header h1{
