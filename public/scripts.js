@@ -198,7 +198,7 @@ function onScroll ( event ){
 
 function startButtonClick( event ){
 	console.log("start click");
-	audioLoader.load( './ambient.flac', function( buffer ) {
+	audioLoader.load( './public/ambient.flac', function( buffer ) {
 		sound.setBuffer( buffer );
 		sound.setLoop( true );
 		sound.setVolume( 0.3 );
