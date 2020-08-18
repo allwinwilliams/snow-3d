@@ -1,6 +1,8 @@
 # Snow night
 A simple exploration using three.js
 
+Live demo at allwinwilliams.com/snow-3d
+
 ### Setup
 Run the setup script to make the repository your own!
 
@@ -16,3 +18,5 @@ $ npm run start
 ```
 
 Open http://localhost:8080 to view your project.
+
+
