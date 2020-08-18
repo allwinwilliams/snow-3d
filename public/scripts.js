@@ -14,7 +14,11 @@ let ticking = false;
 
 var prev_change, change;
 
+var sound, audioLoader;
+
 var particle, particles, floor;
+
+var zoom = 0;
 
 function distance(a, b){
 	// return Math.sqrt((a-b) * (a-b));
@@ -50,6 +54,15 @@ function init() {
 		}, undefined, function ( error ) {
 			console.error( error );
 		} );
+
+		// create an AudioListener and add it to the camera
+		var listener = new THREE.AudioListener();
+		camera.add( listener );
+		// create a global audio source
+		sound = new THREE.Audio( listener );
+		// load a sound and set it as the Audio object's buffer
+		audioLoader = new THREE.AudioLoader();
+
 
 		var pointLight = new THREE.PointLight( 0xffffff );
 		pointLight.position.set(1,1,2);
@@ -104,6 +117,10 @@ function animate() {
 		change.x = distance(mouse.x, 0);
 		change.y = distance(mouse.y, 0);
 
+		var volume = Math.sqrt(mouse.x * mouse.x + mouse.y * mouse.y) + 0.3;
+		volume = volume > 0.98 ? 0.98 : volume;
+		sound.setVolume(volume);
+
 		if(!(change.x == prev_change.x && change.y == prev_change.y)){
 			camera.position.x = camera.position.x + (change.x - prev_change.x);
 			camera.position.y = 1;
@@ -145,11 +162,33 @@ function onMouseMove( event ) {
 	// (-1 to +1) for both components
 	mouse.x = ( event.clientX / renderer.domElement.clientWidth ) * 2 - 1;
 	mouse.y = - ( event.clientY / renderer.domElement.clientHeight ) * 2 + 1;
+
+	if(!sound.isPlaying){
+
+	}
+
+}
+
+function onMouseDown( event ) {
+	console.log("Mouse Down");
+	// setInterval(() => {
+	// 	while(zoom < 0.2){
+	// 		zoom = zoom + 0.01;
+	// 		camera.position.z = camera.position.z - zoom;
+	// 	}
+	// }, 200);
+
+}
+
+function onMouseUp( event ) {
+	console.log("Mouse Up");
+	// camera.position.z = 3;
+	// zoom = 0;
 }
 
 function onScroll ( event ){
 	var top = document.body.scrollTop;
-	console.log(top);
+	// console.log(top);
 
 	floor.rotation.x = top * 0.002;
 	floor.rotation.y = top * 0.02;;
@@ -157,5 +196,20 @@ function onScroll ( event ){
 
 }
 
+function startButtonClick( event ){
+	console.log("start click");
+	audioLoader.load( './ambient.flac', function( buffer ) {
+		sound.setBuffer( buffer );
+		sound.setLoop( true );
+		sound.setVolume( 0.3 );
+		sound.play();
+	});
+	document.getElementById("permission-block").remove();
+	document.body.style.overflowY = "scroll";
+}
+
+document.getElementById("permission-button").addEventListener( 'click', startButtonClick, false );
+window.addEventListener( 'mousedown', onMouseDown, false );
+window.addEventListener( 'mouseup', onMouseUp, false );
 window.addEventListener( 'wheel', onScroll, false );
 window.addEventListener( 'mousemove', onMouseMove, false );

@@ -1,6 +1,6 @@
 body {
   margin: 0;
-
+  overflow-y: hidden;
 }
 
 header{
@@ -40,7 +40,7 @@ main{
   background-color: #fff;
 }
 .bg-black{
-  background-color: #333;
+  background-color: #222;
 }
 .bg-grey{
   background-color: #eee;
@@ -50,4 +50,11 @@ header h1{
   font-weight: 900;
   font-size: 8em;
   opacity: 0.3;
+}
+.audio-permit-button{
+  margin-top: 30em;
+  padding: 2em;
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
 }
